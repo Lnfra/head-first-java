@@ -5,7 +5,7 @@ package com.headfirst.ch1.bethecompiler;
  * Source Code A: Below code will not compile as it is missing its class declaration
  * To fix it enclose it with public class Exercise1a{ }
  */
-
+public class Exercise1a{
   public static void main(String[]args){
     int x = 5;
 
@@ -17,3 +17,4 @@ package com.headfirst.ch1.bethecompiler;
       }
     }
   }
+}
