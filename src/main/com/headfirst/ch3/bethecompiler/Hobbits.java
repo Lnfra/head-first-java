@@ -1,0 +1,33 @@
+package com.headfirst.ch3.bethecompiler;
+
+/**
+ * From Chapter 2, Page 63
+ *  Source B: has an ArrayIndexOutfBoundsException as arrays are zero indexed so valid index are 0 - 2.
+ *  Fix: by modifying the while condition from z < 4 to z< 3. Shift increment counter to the bottom.
+ */
+public class Hobbits {
+  String name;
+
+  public static void main(String[] args) {
+    Hobbits[] h = new Hobbits[3];
+    int z = 0;
+
+    while (z < 3) {
+      h[z] = new Hobbits();
+      h[z].name = "bilbo";
+
+      if(z == 1){
+        h[z].name = "frodo";
+      }
+
+      if (z == 2){
+        h[z].name = "sam";
+      }
+
+      System.out.print( h[z].name + " is a ");
+      System.out.println("good Hobbit name");
+
+      z = z + 1;
+    }
+  }
+}
