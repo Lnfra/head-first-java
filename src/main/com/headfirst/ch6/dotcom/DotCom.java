@@ -1,36 +1,34 @@
 package com.headfirst.ch6.dotcom;
 
+import java.util.List;
+
 /**
  * Chapter 6 Page 138
  */
 public class DotCom {
 
-  private int[] locationCells;
+  private List<Integer> locationCells;
 
-  private int numOfHits = 0;
-
-  public void setLocationCells(int[] locationCells) {
-    this.locationCells = locationCells;
+  public void setLocationCells(List<Integer> locationCells) {
+      this.locationCells = locationCells;
   }
 
-  public String checkYourself(String userGuess) {
+  public String checkYourself(String userInput) {
 
     //convert user guess to an int
-    int guess = Integer.parseInt(userGuess);
+    int guess = Integer.parseInt(userInput);
     String result = "miss";
 
-    //compare guess with each cell in the array
-    for (int cell : locationCells) {
-      if (guess == cell){
-        result = "hit";
-        numOfHits ++;
-        //exit loop as we have found the match
-        break;
-      }
+    if (locationCells.contains(guess)){
+      result = "hit";
+
+      int index = locationCells.indexOf(guess);
+      //remove location from array after its been hit
+      locationCells.remove(index);
     }
 
     //if num of hits is equal to the array length result = kill
-    if (numOfHits == locationCells.length) {
+    if (locationCells.isEmpty()) {
       result = "kill";
     }
 

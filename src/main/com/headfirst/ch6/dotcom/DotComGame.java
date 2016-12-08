@@ -1,5 +1,9 @@
 package com.headfirst.ch6.dotcom;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 /**
  * Chapter 6 Page 138
  */
@@ -23,7 +27,7 @@ public class DotComGame {
     /* Set the location of the dot com
      * It is three consecutive cells on a row of 7 cells
      */
-    int[] location = {startPos, startPos + 1, startPos + 2};
+    List<Integer> location = new ArrayList<>(Arrays.asList(startPos, startPos + 1, startPos + 2));
     game.setLocationCells(location);
 
     boolean isAlive = true;
