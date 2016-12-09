@@ -28,7 +28,7 @@ public class DotComGame {
      * It is three consecutive cells on a row of 7 cells
      */
     List<Integer> location = new ArrayList<>(Arrays.asList(startPos, startPos + 1, startPos + 2));
-    game.setLocationCells(location);
+//    game.setLocationCells(location);
 
     boolean isAlive = true;
 

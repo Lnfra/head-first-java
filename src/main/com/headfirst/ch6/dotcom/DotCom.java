@@ -7,32 +7,40 @@ import java.util.List;
  */
 public class DotCom {
 
-  private List<Integer> locationCells;
+  private List<String> locationCells;
+  private String name;
 
-  public void setLocationCells(List<Integer> locationCells) {
+
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public void setLocationCells(List<String> locationCells) {
       this.locationCells = locationCells;
   }
 
   public String checkYourself(String userInput) {
 
-    //convert user guess to an int
-    int guess = Integer.parseInt(userInput);
     String result = "miss";
+    int index = locationCells.indexOf(userInput);
 
-    if (locationCells.contains(guess)){
-      result = "hit";
-
-      int index = locationCells.indexOf(guess);
+    if (index >= 0) {
       //remove location from array after its been hit
       locationCells.remove(index);
+
+      //if num of hits is equal to the array length result = kill
+      if (locationCells.isEmpty()) {
+        result = "kill";
+        System.out.println("Ouch! you sunk " + name + " : ( ");
+      } else {
+        result = "hit";
+      }
     }
 
-    //if num of hits is equal to the array length result = kill
-    if (locationCells.isEmpty()) {
-      result = "kill";
-    }
-
-    System.out.println("result = " + result);
     return result;
   }
 }
