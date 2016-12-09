@@ -65,6 +65,8 @@ public class DotComBust {
     //increment the user guesses count
     numOfGuesses++;
 
+    //Changed foreach loop to Iterator or for loop to avoid ConcurrentModificationException
+    //Which states you cannot modify a collection in a foreach loop while it is looping
     Iterator<DotCom> i = dotComList.iterator();
     while (i.hasNext()){
       DotCom dotCom = i.next();
